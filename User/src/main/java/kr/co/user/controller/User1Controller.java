@@ -38,7 +38,9 @@ public class User1Controller {
 	
 	@GetMapping("/modify")
 	public String modify(String uid, Model model) {
+		System.out.println("uid1 : " +uid);
 		User1VO user = service.selectUser1(uid);
+		System.out.println("user : " +user);
 		model.addAttribute("user",user);
 		return "/user1/modify";
 	}
@@ -46,6 +48,11 @@ public class User1Controller {
 	@PostMapping("/modify")
 	public String modify(User1VO vo) {
 		service.updateUser1(vo);
-		return "/user1/modify";
+		return "redirect:/user1/list";
+	}
+	
+	public String delete(String uid) {
+		service.deleteUser1(uid);
+		return "redirect:/user1/list";
 	}
 }
