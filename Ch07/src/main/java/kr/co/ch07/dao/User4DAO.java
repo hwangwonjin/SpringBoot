@@ -12,7 +12,7 @@ import kr.co.ch07.vo.User4VO;
 @Repository
 public interface User4DAO {
 
-	public void insertUser4(User2VO vo);
+	public void insertUser4(User4VO vo);
 	public User4VO selectUser4(int seq);
 	public List<User4VO> selectUser4s();
 	public void updateUser4(User4VO vo);

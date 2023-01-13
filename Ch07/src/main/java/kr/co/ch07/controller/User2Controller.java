@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.ch07.service.User2Service;
@@ -25,7 +26,35 @@ public class User2Controller {
 		return "/user2/list";
 	}
 	
+	@GetMapping("/register")
+	public String register() {
+		return "/user2/register";
+	}
 	
+	@PostMapping("/register")
+	public String register(User2VO vo) {
+		service.insertUser2(vo);
+		return "redirect:/user2/list";
+	}
+	
+	@GetMapping("/modify")
+	public String modify(String uid, Model model) {
+		User2VO user = service.selectUser2(uid);
+		model.addAttribute("user", user);
+		return "/user2/modify";
+	}
+	
+	@PostMapping("/modify")
+	public String modify(User2VO vo) {
+		service.updateUser2(vo);
+		return "redirect:/user2/list";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(String uid) {
+		service.deleteUser2(uid);
+		return "redirect:/user2/list";
+	}
 	
 	
 }
