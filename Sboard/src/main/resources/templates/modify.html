@@ -17,7 +17,7 @@
 
         <main id="board" class="modify">
             
-            <form action="#">
+            <form th:action="@{#}">
                 <table border="0">
                     <caption>글수정</caption>
                     <tr>
@@ -35,7 +35,7 @@
                 </table>
 
                 <div>
-                    <a th:href="@{/user/view}" class="btn btnCancel">취소</a>
+                    <a th:href="@{/view}" class="btn btnCancel">취소</a>
                     <input type="submit" value="수정완료" class="btn btnComplete"/>
                 </div>
             </form>

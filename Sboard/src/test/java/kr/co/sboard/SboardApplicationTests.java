@@ -27,7 +27,7 @@ class SboardApplicationTests {
 	@Autowired
 	private UserRepo repo;
 	
-	@Test
+	
 	public void insertTest() {
 		
 		log.info("1");
@@ -56,4 +56,11 @@ class SboardApplicationTests {
 		
 		log.info("result : " + result);
 	}
+	
+	@Test
+	public void serviceTest() {
+		
+	}
+	
+	
 }
