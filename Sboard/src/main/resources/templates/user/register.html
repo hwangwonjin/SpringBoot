@@ -46,6 +46,44 @@
 					}
 				}
     		});
+    		
+    		
+    		const btnCheckNick = document.getElementById('btnCheckNick');
+    		btnCheckNick.addEventListener('click', () => {
+    			
+    			let nick = document.querySelector('input[name=nick]').value;
+
+    			// AJAX 전송
+    			const xhr = new XMLHttpRequest();
+    			xhr.open("GET", "/Sboard/user/checkNick?nick="+nick);
+    			xhr.responseType = "json";
+    			xhr.send();
+    		
+    			xhr.onreadystatechange = function(){
+    				
+    				if(xhr.readyState == XMLHttpRequest.DONE) {
+    					
+    					if(xhr.status == 200){
+    						
+    						const data = xhr.response;
+    						console.log(data.result);
+    						
+    						const resultNick = document.querySelector('.resultNick');
+    						
+    						if(data.result == 1){
+    							
+    							resultNick.innerText = '이미 사용중인 별명입니다';
+    							resultNick.style.color = 'red';
+    						}else{
+    							resultNick.innerText = '사용 가능한 별명입니다';
+    							resultNick.style.color = 'green';
+    						}
+    					}else{
+    						alert("Reqest fail....");
+    					}
+    				}
+    			}
+    		});
     	}
     </script>
 </head>
@@ -96,7 +134,7 @@
                         <td>
                             <p>공백없이 한글, 영문, 숫자 입력</p>
                             <input type="text" name="nick" placeholder="별명 입력"/>
-                            <button type="button"><img src="../img/chk_id.gif" alt="중복확인"/></button>
+                            <button type="button" id="btnCheckNick"><img src="../img/chk_id.gif" alt="중복확인"/></button>
                             <span class="resultNick"></span>
                         </td>
                     </tr>                    

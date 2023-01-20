@@ -1,0 +1,28 @@
+		<a href="./customer.jsp">고객목록</a>
+		<a href="./order.jsp">주문목록</a>
+		<a href="./product.jsp">상품목록</a>
+		
+		<table border="1">
+		<tr>
+			<th>상품번호</th>
+			<th>상품명</th>
+			<th>재고량</th>
+			<th>가격</th>
+			<th>제조사</th>
+			<th>주문</th>
+		</tr>
+		<% for(ProductBean pb : products){ %>
+		<tr>
+			<td><%= pb.getProdno() %></td>
+			<td><%= pb.getProdname() %></td>
+			<td><%= pb.getStock() %></td>
+			<td><%= pb.getPrice() %></td>
+			<td><%= pb.getCompany() %></td>
+			<td>
+				<form>
+					<input type="submit" value="주문">
+				</form>
+			</td>
+		</tr>
+		<%} %>
+		</table>

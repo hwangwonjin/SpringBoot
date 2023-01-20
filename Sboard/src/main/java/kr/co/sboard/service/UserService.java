@@ -52,4 +52,8 @@ public class UserService {
 	public int countByUid(String uid) {
 		return repo.countByUid(uid);
 	}
+	
+	public int countByNick(String nick) {
+		return repo.countByNick(nick);
+	}
 }

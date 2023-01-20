@@ -1,0 +1,15 @@
+톰켓 9 - zip- c드라이브 -설치해제
+windows - preference
+경로설정은 g메일 자료 기술노트 - 이클립스 인코딩설정 참고
+서버설정은 c 드라이브부터 들어가서 설정
+최초 프로젝트 설정 시 web.xml 설정 체크
+(커피콩있는 모드 사용)
+html 파일 선택
+webapp 아래 설치
+서버 실행시 : runas -> server-> finish
+web-jsp 파일- 에디터 - 템플릿
+
+04 클래스
+클래스파일을 java Resourse-src/main/java 아래에 만든다
+sub - Account.java
+임포트 하는 방법은 Account 입력 후 ctrl+쉬프트
