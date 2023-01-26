@@ -4,11 +4,13 @@
 
         <main id="board" class="write">
             
-            <form th:action="@{/write}" method="post" enctype="multipart/form-data">
-                <!--/*
+            <form th:action="@{/board/write}" method="post" enctype="multipart/form-data">
+
             	<input type="text" name="uid" th:value="${#authentication.principal.user.uid}">
             	<input type="text" name="regip" th:value="${#authentication.principal.user.regip}">
-            	*/-->
+            	<input type="text" name="group" th:value="${group}">
+            	<input type="text" name="cate" th:value="${cate}">
+
                 <table border="0">
                     <caption>글쓰기</caption>
                     <tr>

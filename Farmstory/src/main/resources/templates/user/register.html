@@ -1,5 +1,102 @@
 <html xmlns:th="http:/www.thymeleaf.org">
 <th:block th:include="@{_header.html}"/>
+<script>
+    window.onload = function(){
+
+        const btnCheckUid = document.getElementById('btnCheckUid');
+
+        btnCheckUid.addEventListener('click', () => {
+
+            let uid = document.querySelector('input[name=uid]').value;
+
+            console.log("uid : " +uid);
+
+            // AJAX 전송
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "/Farmstory/user/checkUid?uid="+uid);
+                xhr.responseType = "json";
+                xhr.send();
+
+                console.log('1');
+
+                xhr.onreadystatechange = function(){
+
+                    if(xhr.readyState == XMLHttpRequest.DONE){
+
+                        if(xhr.status == 200){
+                            const data = xhr.response;
+                            console.log(data.result);
+
+                            const resultUid = document.querySelector('.resultUid');
+
+                            if(data.result == 1){
+                                resultUid.innerText = '이미 사용중인 아이디입니다';
+                                resultUid.style.color = 'red';
+                            }else{
+                                resultUid.innerText = '사용 가능한 아이디 입니다';
+                                resultUid.style.color = 'green';
+                            }
+
+                        }else{
+                            alert("request fail...");
+                        }
+
+                    }
+
+                }
+
+        });
+
+
+         const btnCheckNick = document.getElementById('btnCheckNick');
+
+        btnCheckNick.addEventListener('click', () => {
+
+            let nick = document.querySelector('input[name=nick]').value;
+
+            console.log("nick : " +nick);
+
+            // AJAX 전송
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "/Farmstory/user/checkNick?nick="+nick);
+                xhr.responseType = "json";
+                xhr.send();
+
+                console.log('1');
+
+                xhr.onreadystatechange = function(){
+
+                    if(xhr.readyState == XMLHttpRequest.DONE){
+
+                        if(xhr.status == 200){
+                            const data = xhr.response;
+                            console.log(data.result);
+
+                            const resultNick = document.querySelector('.resultNick');
+
+                            if(data.result == 1){
+                                resultNick.innerText = '이미 사용중인 별명입니다';
+                                resultNick.style.color = 'red';
+                            }else{
+                                resultNick.innerText = '사용 가능한 별명 입니다';
+                                resultNick.style.color = 'green';
+                            }
+
+                        }else{
+                            alert("request fail...");
+                        }
+
+                    }
+
+                }
+
+        });
+
+    }
+
+
+
+</script>
 
         <main id="user" class="register">
 
