@@ -23,5 +23,9 @@ public class ArticleVO {
     private String regip;
     private String rdate;
 
+    // 추가 필드
+    private String group;
+    private String nick;
+    private FileVO fileVO;
 
 }

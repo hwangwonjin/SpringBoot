@@ -1,15 +1,24 @@
 package kr.co.farmstory.controller;
 
 import kr.co.farmstory.dao.ArticleDAO;
+import kr.co.farmstory.entity.UserEntity;
 import kr.co.farmstory.repository.ArticleRepo;
+import kr.co.farmstory.security.MyUserDetails;
 import kr.co.farmstory.service.ArticleService;
 import kr.co.farmstory.vo.ArticleVO;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
+@Slf4j
 @Controller
 public class BoardController {
 
@@ -21,8 +30,24 @@ public class BoardController {
 
 
     @GetMapping("board/list")
-    public String list(Model model, String group, String cate){
+    public String list(@AuthenticationPrincipal MyUserDetails myUser, Model model, String group, String cate, String pg){
 
+        UserEntity user =myUser.getUser();
+
+        int currentPage = service.getCurrentPage(pg);
+        int start = service.getLimitStart(currentPage);
+        long total = service.getTotalCount(cate);
+        int lastPage = service.getLastPageNum(total);
+        int pageStartNum = service.getPageStartNum(total, start);
+        int groups[] = service.getPageGroup(currentPage, lastPage);
+
+        List<ArticleVO> articles = service.selectArticles(start, cate);
+
+        model.addAttribute("user", user);
+        model.addAttribute("articles", articles);
+        model.addAttribute("lastPage", lastPage);
+        model.addAttribute("pageStartNum", pageStartNum);
+        model.addAttribute("groups", groups);
         model.addAttribute("group", group);
         model.addAttribute("cate", cate);
         return "board/list";
@@ -32,14 +57,32 @@ public class BoardController {
 
 
     @GetMapping("board/modify")
-    public String modify(Model model, String group, String cate){
+    public String modify(int no, Model model, String group, String cate){
+
+        ArticleVO article = service.selectArticle(no);
+
+        model.addAttribute("article", article);
         model.addAttribute("group", group);
         model.addAttribute("cate", cate);
         return "board/modify";
     }
 
+    @PostMapping("board/modify")
+    public String modify(ArticleVO vo,Model model){
+
+        log.info("here1");
+        log.info("vo : " + vo);
+        service.updateArticle(vo);
+
+        return "redirect:/board/view?group="+vo.getGroup()+"&cate="+vo.getCate()+"&no="+vo.getNo();
+    }
+
     @GetMapping("board/view")
-    public String view(Model model, String group, String cate){
+    public String view(int no, Model model, String group, String cate){
+
+        ArticleVO article = service.selectArticle(no);
+
+        model.addAttribute("article", article);
         model.addAttribute("group", group);
         model.addAttribute("cate", cate);
         return "board/view";
@@ -61,5 +104,15 @@ public class BoardController {
 
         return "redirect:/board/list?group="+group+"&cate="+cate;
     }
+
+    @GetMapping("board/delete")
+    public String delete(int no, String group, String cate){
+
+        service.deleteArticle(no);
+
+        return "redirect:/board/list?group="+group+"&cate="+cate;
+    }
+
+
 
 }

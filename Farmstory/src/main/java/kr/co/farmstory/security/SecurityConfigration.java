@@ -19,7 +19,9 @@ public class SecurityConfigration {
 		
 		// 인가(접근권한) 설정
 		http.authorizeHttpRequests().antMatchers("/").permitAll();
-		//http.authorizeHttpRequests().antMatchers("/")
+		http.authorizeHttpRequests().antMatchers("/board/list").hasAnyRole("2", "3", "4", "5");
+		http.authorizeHttpRequests().antMatchers("/board/write", "/board/view", "/board/modify").hasAnyRole( "3", "4", "5");
+
 
 		// 사이트 위변조 요청 방지
 		http.csrf().disable();

@@ -29,14 +29,16 @@
     <header>
         <a th:href="@{/index}" class="logo"><img th:src="@{/img/logo.png}" alt="로고"/></a>
         <p>
-            <a th:href="@{/index}">HOME123 |</a>
-            <th:bolck th:if="${sessUser eq null}">
-            <a th:href="@{/user/login}">로그인 |</a>
+            <a th:href="@{/index}">HOME |</a>
+            <th:bolck th:if="${user == null}">
+                <a th:href="@{/user/login}">로그인 |</a>
+                <a th:href="@{/user/terms}">회원가입 |</a>
             </th:bolck>
-            <th:bolck th:if="${sessUser ne null}">
-                <a>[[${#authentication.principal.user.nick}]] |</a>
+            <th:bolck th:if="${user != null}">
+                <a>[[${#authentication.principal.user.nick}]] 님|</a>
+                <a th:href="@{/user/logout}">로그아웃 |</a>
             </th:bolck>
-            <a th:href="@{/user/terms}">회원가입 |</a>
+
             <a href="#">고객센터</a>
         </p>
         <img th:src="@{/img/head_txt_img.png}" alt="3만원 이상 무료배송"/>

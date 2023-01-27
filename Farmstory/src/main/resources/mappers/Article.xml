@@ -42,14 +42,13 @@
 		select a.*, b.`nick` from `board_article` as a
 		join `board_user` as b
 		on a.uid = b.uid
-		where `parent`=0
+		where `parent`=0 and `cate`=#{cate}
 		order by `no` desc
 		limit #{start}, 10;
-	
 	</select>
 	
 	<select id="selectCountTotal" resultType="int">
-		select count(`no`) from `board_article` where `parent`=0;
+		select count(`no`) from `board_article` where `parent`=0 and `cate`=#{cate};
 	</select>
 	
 	<select id="selectArticle" resultMap="selectArticleResultMap">
@@ -58,9 +57,18 @@
 		on a.no = b.parent
 		where `no` =#{no};
 	</select>
-	
-	
-	
+
+	<update id="updateArticle">
+		update `board_article` set
+									`title`=#{title},
+									`content`=#{content}
+		where `no`=#{no};
+	</update>
+
+	<delete id="deleteArticle">
+		delete from `board_article` where `no`=#{no};
+
+	</delete>
 	
 	<!-- 조회(select)결과를 상세하게 매핑하기 위한 사용자 정의 Map -->
 	<resultMap id="selectArticleResultMap" type="kr.co.farmstory.vo.ArticleVO" >
