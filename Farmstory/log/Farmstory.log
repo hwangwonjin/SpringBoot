@@ -25290,3 +25290,35 @@ java.io.NotSerializableException: kr.co.farmstory.entity.UserEntity
 2023-01-27 19:33:01.736  INFO 14288 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-01-27 19:33:01.737  INFO 14288 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-01-27 19:33:01.744  INFO 14288 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-06 11:54:26.315  INFO 16484 --- [restartedMain] kr.co.farmstory.FarmstoryApplication     : Starting FarmstoryApplication using Java 11.0.16.1 on DESKTOP-562QE44 with PID 16484 (C:\Users\hwangwonjin\Desktop\workspace\SpringBoot\Farmstory\out\production\classes started by hwangwonjin in C:\Users\hwangwonjin\Desktop\workspace\SpringBoot\Farmstory)
+2023-02-06 11:54:26.317  INFO 16484 --- [restartedMain] kr.co.farmstory.FarmstoryApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-02-06 11:54:26.391  INFO 16484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-06 11:54:26.392  INFO 16484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-06 11:54:27.291  INFO 16484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-06 11:54:27.370  INFO 16484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 2 JPA repository interfaces.
+2023-02-06 11:54:28.546  INFO 16484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2023-02-06 11:54:28.567  INFO 16484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-06 11:54:28.568  INFO 16484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-06 11:54:28.695  INFO 16484 --- [restartedMain] o.a.c.c.C.[.[localhost].[/Farmstory]     : Initializing Spring embedded WebApplicationContext
+2023-02-06 11:54:28.695  INFO 16484 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2303 ms
+2023-02-06 11:54:28.968  INFO 16484 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-06 11:54:29.044  INFO 16484 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-06 11:54:29.302  INFO 16484 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-06 11:54:29.454  INFO 16484 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-06 11:54:29.823  INFO 16484 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-06 11:54:29.845  INFO 16484 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-02-06 11:54:30.647  INFO 16484 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-06 11:54:30.661  INFO 16484 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-06 11:54:31.707  INFO 16484 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43014a2f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c2ba2cf, org.springframework.security.web.context.SecurityContextPersistenceFilter@32b76782, org.springframework.security.web.header.HeaderWriterFilter@476462fe, org.springframework.security.web.authentication.logout.LogoutFilter@1552eea0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@35876e27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65a64057, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ef17dd8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a7f1d95, org.springframework.security.web.session.SessionManagementFilter@702b703, org.springframework.security.web.access.ExceptionTranslationFilter@7b204124, org.springframework.security.web.access.intercept.AuthorizationFilter@33a7d00f]
+2023-02-06 11:54:31.750  WARN 16484 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-06 11:54:31.937  INFO 16484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-02-06 11:54:32.231  INFO 16484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-06 11:54:32.261  INFO 16484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path '/Farmstory'
+2023-02-06 11:54:32.273  INFO 16484 --- [restartedMain] kr.co.farmstory.FarmstoryApplication     : Started FarmstoryApplication in 6.444 seconds (JVM running for 7.133)
+2023-02-06 11:54:47.099  INFO 16484 --- [http-nio-8181-exec-2] o.a.c.c.C.[.[localhost].[/Farmstory]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-06 11:54:47.101  INFO 16484 --- [http-nio-8181-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-06 11:54:47.103  INFO 16484 --- [http-nio-8181-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-02-06 11:55:37.209  WARN 16484 --- [http-nio-8181-exec-9] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [300] milliseconds.
+2023-02-06 14:01:44.408  INFO 16484 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-06 14:01:44.416  INFO 16484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-06 14:01:44.426  INFO 16484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
