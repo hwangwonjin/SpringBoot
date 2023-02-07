@@ -29,6 +29,7 @@ public class BoardController {
     private ArticleRepo repo;
 
 
+    // 글 목록
     @GetMapping("board/list")
     public String list(@AuthenticationPrincipal MyUserDetails myUser, Model model, String group, String cate, String pg){
 
@@ -55,7 +56,7 @@ public class BoardController {
     }
 
 
-
+    // 글 수정
     @GetMapping("board/modify")
     public String modify(int no, Model model, String group, String cate){
 
@@ -67,6 +68,7 @@ public class BoardController {
         return "board/modify";
     }
 
+    // 글 수정
     @PostMapping("board/modify")
     public String modify(ArticleVO vo,Model model){
 
@@ -77,6 +79,7 @@ public class BoardController {
         return "redirect:/board/view?group="+vo.getGroup()+"&cate="+vo.getCate()+"&no="+vo.getNo();
     }
 
+    // 글 보기
     @GetMapping("board/view")
     public String view(int no, Model model, String group, String cate){
 
@@ -88,6 +91,7 @@ public class BoardController {
         return "board/view";
     }
 
+    // 글 쓰기
     @GetMapping("board/write")
     public String write(Model model, String group, String cate){
 
@@ -97,6 +101,7 @@ public class BoardController {
         return "board/write";
     }
 
+    // 글 쓰기
     @PostMapping("board/write")
     public String write(ArticleVO vo, String group, String cate){
 
@@ -105,6 +110,7 @@ public class BoardController {
         return "redirect:/board/list?group="+group+"&cate="+cate;
     }
 
+    // 글 삭제
     @GetMapping("board/delete")
     public String delete(int no, String group, String cate){
 

@@ -23,11 +23,13 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    // 로그인
     @GetMapping("user/login")
     public String login(){
         return "user/login";
     }
 
+    // 약관
     @GetMapping("user/terms")
     public String terms(Model model){
         TermsVO vo =service.selectTerms();
@@ -35,11 +37,13 @@ public class UserController {
         return "user/terms";
     }
 
+    // 회원가입
     @GetMapping("user/register")
     public String register(){
         return "user/register";
     }
 
+    // 회원가입
     @PostMapping("user/register")
     public String register(UserVO vo, HttpServletRequest request){
 
@@ -51,6 +55,7 @@ public class UserController {
         return "redirect:/user/login?success="+result;
     }
 
+    // 아이디 중복확인
     @ResponseBody
     @GetMapping("user/checkUid")
     public Map<String, Integer> checkUid(@RequestParam("uid") String uid){
@@ -63,6 +68,7 @@ public class UserController {
         return resultMap;
     }
 
+    // 별명 중복확인
     @ResponseBody
     @GetMapping("user/checkNick")
     public Map<String, Integer> checkNick(@RequestParam("nick") String nick){
